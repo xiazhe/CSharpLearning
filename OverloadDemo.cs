@@ -25,3 +25,5 @@ class MyClass
         //implementation
     }
 }
+
+// PS: 两个方法不能仅在返回类型上有区别。两个方法不能仅根据参数是声明为ref还是out来区分。
