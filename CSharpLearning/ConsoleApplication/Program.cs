@@ -72,6 +72,11 @@ namespace ConsoleApplication
 
         #endregion
 
+        //This is a singleline comment;
+        /* This comment
+           spans multiple lines. */
+
+
 
 
 
