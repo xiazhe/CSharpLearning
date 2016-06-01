@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace ConsoleApplication
 {
@@ -43,32 +45,32 @@ namespace ConsoleApplication
         #endregion
 
         #region Enum Demo
-        static int Main(string[] args)
-        {
-            WriteGreeting(TimeOfDayEnum.Morning);
-            return 0;
-        }
+        //static int Main(string[] args)
+        //{
+        //    WriteGreeting(TimeOfDayEnum.Morning);
+        //    return 0;
+        //}
 
-        static void WriteGreeting(TimeOfDayEnum timeOfDay)
-        {
-            switch (timeOfDay)
-            {
-                case TimeOfDayEnum.Morning:
-                    Console.WriteLine("Good Morning!");
-                    break;
-                case TimeOfDayEnum.Afternoon:
-                    Console.WriteLine("Good Afternoon!");
-                    break;
-                case TimeOfDayEnum.Evening:
-                    Console.WriteLine("Good Evening!");
-                    break;
-                default:
-                    Console.WriteLine("Hello");
-                    break;
-            }
+        //static void WriteGreeting(TimeOfDayEnum timeOfDay)
+        //{
+        //    switch (timeOfDay)
+        //    {
+        //        case TimeOfDayEnum.Morning:
+        //            Console.WriteLine("Good Morning!");
+        //            break;
+        //        case TimeOfDayEnum.Afternoon:
+        //            Console.WriteLine("Good Afternoon!");
+        //            break;
+        //        case TimeOfDayEnum.Evening:
+        //            Console.WriteLine("Good Evening!");
+        //            break;
+        //        default:
+        //            Console.WriteLine("Hello");
+        //            break;
+        //    }
 
 
-        }
+        //}
 
         #endregion
 
@@ -76,9 +78,99 @@ namespace ConsoleApplication
         /* This comment
            spans multiple lines. */
 
+        //String Name = String.Empty;
+        //int _Identifier = 0;
+        //int \u005Identifier = 0;
+
+        //字段应总是私有的, 但在某些情况下也可以把常量或字段设置为公有. 原因是如果把字段设为公有,就不利于以后扩展或修改类.
+
+
+
+        /// <summary>
+        /// Test for Using
+        /// http://stackoverflow.com/questions/75401/uses-of-using-in-c-sharp
+        /// The reason for the "using" statement is to ensure that the object is disposed 
+        /// as soon as it goes out of scope, and it doesn't require explicit code to ensure that this happens.
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            int i = 0;
+
+            //using
+            //using (i)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //using (TestForUsing t = new TestForUsing())
+            //{
+            //    var result = t.SayHi();
+            //    Console.WriteLine(result);
+            //}
+
+            //TestForUsing t = new TestForUsing();
+
+            //Console.WriteLine(t.SayHi());
+
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(""))
+            {
+                //dosomething
+            }
+
+            //Unhandled Exception: System.ArgumentException: Empty path name is not legal.
+            //   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detec
+            //tEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+            //   at System.IO.StreamReader..ctor(String path)
+            //   at ConsoleApplication.Program.Main(String[] args) in E:\git\CSharpLearning\CS
+            //harpLearning\ConsoleApplication\Program.cs:line 115
+
+
+            //to
+
+            System.IO.StreamReader streamReader = new System.IO.StreamReader("");
+
+            try
+            {
+                //steamReader  code
+            }
+            finally
+            {
+                if (streamReader != null)
+                {
+                    ((IDisposable)streamReader).Dispose();
+                }
+            }
+
+
+            using (var conn = new SqlConnection("connection string"))
+            {
+                conn.Open();
+            }
+
+
+
+        }
+
 
 
 
 
     }
+
+
+    // class TestForUsing
+    //{
+    //    public string SayHi()
+    //    {
+    //        return "hi";
+    //    }
+
+        
+    //}
+
+
+
+
+
 }
