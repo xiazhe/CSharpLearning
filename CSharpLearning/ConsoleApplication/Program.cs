@@ -93,66 +93,87 @@ namespace ConsoleApplication
         /// as soon as it goes out of scope, and it doesn't require explicit code to ensure that this happens.
         /// </summary>
         /// <param name="args"></param>
+        //static void Main(string[] args)
+        //{
+        //    //using
+        //    //using (i)
+        //    //{
+        //    //    Console.WriteLine(i);
+        //    //}
+
+        //    //using (TestForUsing t = new TestForUsing())
+        //    //{
+        //    //    var result = t.SayHi();
+        //    //    Console.WriteLine(result);
+        //    //}
+
+        //    //TestForUsing t = new TestForUsing();
+
+        //    //Console.WriteLine(t.SayHi());
+
+        //    using (System.IO.StreamReader reader = new System.IO.StreamReader(""))
+        //    {
+        //        //dosomething
+        //    }
+
+        //    //Unhandled Exception: System.ArgumentException: Empty path name is not legal.
+        //    //   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detec
+        //    //tEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+        //    //   at System.IO.StreamReader..ctor(String path)
+        //    //   at ConsoleApplication.Program.Main(String[] args) in E:\git\CSharpLearning\CS
+        //    //harpLearning\ConsoleApplication\Program.cs:line 115
+
+
+        //    //to
+
+        //    System.IO.StreamReader streamReader = new System.IO.StreamReader("");
+
+        //    try
+        //    {
+        //        //steamReader  code
+        //    }
+        //    finally
+        //    {
+        //        if (streamReader != null)
+        //        {
+        //            ((IDisposable)streamReader).Dispose();
+        //        }
+        //    }
+
+
+        //    using (var conn = new SqlConnection("connection string"))
+        //    {
+        //        conn.Open();
+        //    }
+
+
+
+        //}
+
+
+
+
+        
         static void Main(string[] args)
         {
-            int i = 0;
+            // 隐式类型的局部变量
+            // https://msdn.microsoft.com/zh-cn/library/ff926074.aspx
+            //var var1 = "This is clearly a string.";
+            //var num = 24;
 
-            //using
-            //using (i)
-            //{
-            //    Console.WriteLine(i);
-            //}
+            //// System.Int32
+            //Console.WriteLine(num.GetType());
+            //Console.ReadLine();
 
-            //using (TestForUsing t = new TestForUsing())
-            //{
-            //    var result = t.SayHi();
-            //    Console.WriteLine(result);
-            //}
 
-            //TestForUsing t = new TestForUsing();
-
-            //Console.WriteLine(t.SayHi());
-
-            using (System.IO.StreamReader reader = new System.IO.StreamReader(""))
+            var syllable = "ha";
+            var laugh = "";
+            for (var i = 0; i < 10; i++)
             {
-                //dosomething
+                laugh += syllable;
+                Console.WriteLine(laugh);
             }
-
-            //Unhandled Exception: System.ArgumentException: Empty path name is not legal.
-            //   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detec
-            //tEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
-            //   at System.IO.StreamReader..ctor(String path)
-            //   at ConsoleApplication.Program.Main(String[] args) in E:\git\CSharpLearning\CS
-            //harpLearning\ConsoleApplication\Program.cs:line 115
-
-
-            //to
-
-            System.IO.StreamReader streamReader = new System.IO.StreamReader("");
-
-            try
-            {
-                //steamReader  code
-            }
-            finally
-            {
-                if (streamReader != null)
-                {
-                    ((IDisposable)streamReader).Dispose();
-                }
-            }
-
-
-            using (var conn = new SqlConnection("connection string"))
-            {
-                conn.Open();
-            }
-
-
-
         }
-
-
 
 
 
@@ -166,7 +187,7 @@ namespace ConsoleApplication
     //        return "hi";
     //    }
 
-        
+
     //}
 
 
