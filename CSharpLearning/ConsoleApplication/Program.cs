@@ -86,6 +86,7 @@ namespace ConsoleApplication
 
 
 
+        #region Using
         /// <summary>
         /// Test for Using
         /// http://stackoverflow.com/questions/75401/uses-of-using-in-c-sharp
@@ -149,13 +150,15 @@ namespace ConsoleApplication
 
 
         //}
+        #endregion
 
 
 
-
-        
+        // The C# Language Specification
         static void Main(string[] args)
         {
+
+            #region 隐式类型的局部变量
             // 隐式类型的局部变量
             // https://msdn.microsoft.com/zh-cn/library/ff926074.aspx
             //var var1 = "This is clearly a string.";
@@ -164,15 +167,63 @@ namespace ConsoleApplication
             //// System.Int32
             //Console.WriteLine(num.GetType());
             //Console.ReadLine();
+            #endregion
+
+            //var syllable = "ha";
+            //var laugh = "";
+            //for (var i = 0; i < 10; i++)
+            //{
+            //    laugh += syllable;
+            //    Console.WriteLine(laugh);
+            //}
 
 
-            var syllable = "ha";
-            var laugh = "";
-            for (var i = 0; i < 10; i++)
-            {
-                laugh += syllable;
-                Console.WriteLine(laugh);
-            }
+            //byte b = Byte.MaxValue;
+            ////255
+            //Console.WriteLine(b);
+
+            //string i = string.Empty;
+
+            //Console.WriteLine(i);
+
+
+            #region 遍历枚举
+            //// 遍历枚举
+            //foreach(int mode in Enum.GetValues(typeof(System.IO.FileMode)))
+            //{
+            //    string name = Enum.GetName(typeof(System.IO.FileMode), mode);
+
+            //    string value = mode.ToString();
+
+            //    Console.WriteLine(name + "    " + value);
+
+            //}
+
+            //foreach(int day in Enum.GetValues(typeof(TimeOfDayEnum)))
+            //{
+            //    string name = Enum.GetName(typeof(TimeOfDayEnum), day);
+            //    string value = day.ToString();
+            //    Console.WriteLine(name + "   " + value);
+            //}
+
+            #endregion
+
+
+            //MyClass mc = new MyClass();
+            //MyClass mc2 = mc;
+
+            //int[] nums = { 1, 2, 3, 4, 5, 6};
+
+            //// Outputs: 6
+            //Console.WriteLine(nums.Length);
+
+
+            // System.Collections.Generic.List<T> 泛型
+            List<string> strings = new List<string>();
+
+
+
+
         }
 
 
@@ -180,18 +231,24 @@ namespace ConsoleApplication
     }
 
 
-    // class TestForUsing
+    //public enum FileMode
     //{
-    //    public string SayHi()
-    //    {
-    //        return "hi";
-    //    }
-
-
+    //    CreateNew = 1,
+    //    Create = 2,
+    //    Open = 3,
+    //    OpenOrCreate = 4,
+    //    Truncate = 5,
+    //    Append = 6
     //}
 
+    public class MyClass
+    {
+    }
 
+    public interface IMyInterface
+    {
 
+    }
 
 
 }
