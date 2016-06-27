@@ -18,6 +18,9 @@ namespace LambdaTest
 
         delegate bool myDel(int x, int y);
 
+        // Func<T, TResult> 泛型委托
+        delegate TResult Func<TArg0, TResult>(TArg0 arg0);
+
         static void Main(string[] args)
         {
             #region demo 1
